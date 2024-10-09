@@ -1,0 +1,13 @@
+<h2>Ваш кошик</h2>
+
+<div *ngIf="items.length; else emptyCart">
+  <div *ngFor="let item of items">
+    <p>{{ item.name }} - {{ item.price | currency }}</p>
+  </div>
+  <a routerLink="/shipping">Перейти до оформлення замовлення</a>
+  <button (click)="clearCart()">Очистити кошик</button>
+</div>
+
+<ng-template #emptyCart>
+  <p>Ваш кошик порожній.</p>
+</ng-template>
